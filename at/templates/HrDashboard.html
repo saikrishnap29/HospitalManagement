@@ -91,19 +91,19 @@
                         <th>Remove</th>
 
                     </tr>
-                    {% for patient in patients %}
+                    {% for Doctor in doctor %}
                 <tr>
-                    <td>{{Doctor.Name}}</td>
-                    <td>{{Doctor.Phone}}</td>
-                    <td>{{Doctor.Email}}</td>
-                    <td>{{Doctor.Gender}}</td>
-                    <td>{{Doctor.Age}}</td>
-                    <td>{{Doctor.Status}}</td>
-                    <td>{{Doctor.Depatment}}</td>
-                    <td>{{Doctor.Attendence}}</td>
-                    <td>{{Doctor.Salary}}</td>
-                    <td><a class="btn btn-sm btn-info" href="{% url 'updateorder' Doctor.id %}">Update</a></td>
-                    <td><a class="btn btn-sm btn-danger" href="{% url 'deleteorder' Doctor.id %}">Delete</a></td>
+                    <td>{{Doctor.name}}</td>
+                    <td>{{Doctor.phone}}</td>
+                    <td>{{Doctor.email}}</td>
+                    <td>{{Doctor.gender}}</td>
+                    <td>{{Doctor.age}}</td>
+                    <td>{{Doctor.status}}</td>
+                    <td>{{Doctor.depatment}}</td>
+                    <td>{{Doctor.attendence}}</td>
+                    <td>{{Doctor.salary}}</td>
+                    <td><a class="btn btn-sm btn-info" >Update</a></td>
+                    <td><a class="btn btn-sm btn-danger">Delete</a></td>
                 </tr>
                 {% endfor %}
                 </table>

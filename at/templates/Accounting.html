@@ -20,14 +20,11 @@
                     <th>Remainder</th>
 
                 </tr>
-                {% for appointment in appointments %}
+                {% for patient in patients %}
                 <tr>
-                    <th><a class="btn btn-sm btn-info" href="{% url 'patient' patient.id %}">View</a></th>
-                    <td>{{appointment.date}}</td>
-                    <td>{{appointment.time}}</td>
-                    <td>{{appointment.doctor}}</td>
-                    <td>{{appointment.patient}}</td>
-                    <td>{{appointment.status}}</td>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.outstanding}}</td>
+                    <td>{{patient.paid}}</td>
                     <td><a class="btn btn-sm btn-info" href="#">Remainder</a></td>
                 </tr>
                 {% endfor %}
@@ -49,11 +46,11 @@
                     {% for patient in patients %}
                     <tr>
                     <td>{{patient.date}}</td>
-                    <td>{{patient.username}}</td>
+                    <td>{{patient.name}}</td>
                     <td>{{patient.paid}}</td>
                     <td>{{patient.outstanding}}</td>
                     <td>{{patient.total}}</td>
-                    <td><a class="btn btn-sm btn-info" href="{% url 'updateorder' patient.id %}">Open Invoice</a></td>
+                    <td><a class="btn btn-sm btn-info">Open Invoice</a></td>
                     </tr>
                 {% endfor %}
                 </table>

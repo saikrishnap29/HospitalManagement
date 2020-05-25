@@ -47,8 +47,6 @@ def Login(request):
                 return render(request, "HrHome.html", )
             elif usertype == "4":
                 return render(request, "ReceptionistHome.html", )
-            # type=User.objects.get(username=request.username)
-            # User(request,user)
             return render(request, "PatientHome.html",)
         else:
             messages.info(request,'Invalid Credentials')
@@ -90,6 +88,8 @@ def DoctorProfile(request):
 
 def Appointments(request):
     appointments = Appointment.objects.all()
+    for i in appointments:
+        print(i)
     return render(request,'Appointments.html',{"appointments": appointments})
 
 def Prescriptions(request):
@@ -106,7 +106,9 @@ def CreatePrescription(request):
     return render(request, "CreatePrescription.html", {"Prescription_form":Prescription_form})
 
 def ReceptionistDashboard(request):
-    return render(request,'ReceptionistDashboard.html')
+    appointments = Appointment.objects.all()
+    patients = Patient.objects.all()
+    return render(request, 'ReceptionistDashboard.html', {"patients": patients,"appointments":appointments})
 
 def PatientProfileReceptionist(request):
     patientreceptionist=PatientFormReceptionist()
@@ -117,9 +119,6 @@ def PatientProfileReceptionist(request):
             return redirect('ReceptionistDashboard')
     return render(request,'PatientProfileReceptionist.html',{"patientreceptionist":patientreceptionist})
 
-def PatintDisplayAll(request):
-    patients = Patient.objects.all()
-    return render(request,'ReceptionistDashboard.html',{"patients": patients})
 
 def AppointmentFormReceptionist(request):
     AppointmentForms= AppointmentForm()
@@ -130,14 +129,9 @@ def AppointmentFormReceptionist(request):
             return redirect('ReceptionistDashboard')
     return render(request, 'CreateAppointment.html', {"AppointmentForms": AppointmentForms})
 
-
-def AppointmentsDisplayAll(request):
-    appoint = Appointments.objects.all()
-    return render(request,'ReceptionistDashboard.html',{"appoint": appoint})
-
-
 def HrDashboard(request):
-    return render(request,'HrDashboard.html')
+    doctor=Doctor.objects.all()
+    return render(request,'HrDashboard.html',{"doctor":doctor})
 
 def DoctorProfileHr(request):
     doctorformhr=DoctorFormHr()
@@ -149,6 +143,7 @@ def DoctorProfileHr(request):
     return render(request,'DoctorProfileHr.html',{"doctorformhr":doctorformhr})
 
 def Accounting(request):
-    return render(request,'Accounting.html')
+    patients=Patient.objects.all()
+    return render(request,'Accounting.html',{"patients":patients})
 
 

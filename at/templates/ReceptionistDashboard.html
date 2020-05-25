@@ -85,7 +85,7 @@
                 </tr>
                 {% for appointment in appointments %}
                 <tr>
-                    <th><a class="btn btn-sm btn-info" href="{% url 'patient' patient.id %}">View</a></th>
+                    <th><a class="btn btn-sm btn-info" >View</a></th>
                     <td>{{appointment.date}}</td>
                     <td>{{appointment.time}}</td>
                     <td>{{appointment.doctor}}</td>
@@ -114,13 +114,13 @@
                     </tr>
                     {% for patient in patients %}
                     <tr>
-                    <td>{{patient.Name}}</td>
-                    <td>{{patient.Phone}}</td>
-                    <td>{{patient.Email}}</td>
-                    <td>{{patient.Age}}</td>
-                    <td>{{patient.Gender}}</td>
-                    <td><a class="btn btn-sm btn-info" href="{% url 'updateorder' patient.id %}">Update</a></td>
-                    <td><a class="btn btn-sm btn-danger" href="{% url 'deleteorder' patient.id %}">Delete</a></td>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.phone}}</td>
+                    <td>{{patient.email}}</td>
+                    <td>{{patient.age}}</td>
+                    <td>{{patient.gender}}</td>
+                    <td><a class="btn btn-sm btn-info" >Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" >Delete</a></td>
                     </tr>
                 {% endfor %}
                 </table>
