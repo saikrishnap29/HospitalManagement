@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Profile</title>
+</head>
+<body>
+      <h1>Doctor Profile</h1>
+      <form method="POST" action="">
+              {% csrf_token %}
+            {{doctorformhr.as_p}}
+                  <br>
+            <button type="submit">Create Patient</button>
+        </form>
+</body>
+</html>

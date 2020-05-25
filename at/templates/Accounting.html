@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<br><br>
+<div class="row">
+    <div class="col-md-5">
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" >Individual Outstanding</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Patient</th>
+                    <th>Outstanding</th>
+                    <th>Paid</th>
+                    <th>Remainder</th>
+
+                </tr>
+                {% for appointment in appointments %}
+                <tr>
+                    <th><a class="btn btn-sm btn-info" href="{% url 'patient' patient.id %}">View</a></th>
+                    <td>{{appointment.date}}</td>
+                    <td>{{appointment.time}}</td>
+                    <td>{{appointment.doctor}}</td>
+                    <td>{{appointment.patient}}</td>
+                    <td>{{appointment.status}}</td>
+                    <td><a class="btn btn-sm btn-info" href="#">Remainder</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-7">
+            <div class="card card-body">
+               <a class="btn btn-primary btn-sm btn-block" >Cunsultation Outstanding</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th>Date</th>
+                        <th>Patient Name</th>
+                        <th>Paid</th>
+                        <th>Outstanding</th>
+                        <th>Total</th>
+                        <th>Invoice</th>
+                    </tr>
+                    {% for patient in patients %}
+                    <tr>
+                    <td>{{patient.date}}</td>
+                    <td>{{patient.username}}</td>
+                    <td>{{patient.paid}}</td>
+                    <td>{{patient.outstanding}}</td>
+                    <td>{{patient.total}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'updateorder' patient.id %}">Open Invoice</a></td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>

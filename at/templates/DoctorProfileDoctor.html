@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Profile</title>
+</head>
+<body>
+      <h1>Doctor Profile</h1>
+      <form method="POST" action=" ">
+          {% csrf_token %}
+
+        {{Doctor_form.as_p}}
+        <!--
+            {{Doctor_form.name.label}} :
+            {{Doctor_form.name}}
+            <br> <br>
+            {{Doctor_form.phone.label}} :
+            {{Doctor_form.phone}}
+            <br> <br>
+            {{Doctor_form.email.label}} :
+            {{Doctor_form.email}}
+            <br> <br>
+             {{Doctor_form.gender.label}} :
+            {{Doctor_form.gender}}
+            <br> <br>
+            {{Doctor_form.age.label}} :
+            {{Doctor_form.age}}
+            <br> <br>
+            {{Doctor_form.address.label}} :
+            {{Doctor_form.address}}
+            <br> <br>
+            {{Doctor_form.department.label}} :
+            {{Doctor_form.department}}
+            <br> <br>
+            {{Doctor_form.salary.label}} :
+            {{Doctor_form.salary}}
+            <br> <br>
+            {{Doctor_form.attendance.label}} :
+            {{Doctor_form.attendance}}
+            <br> <br>
+            {{Doctor_form.status.label}} :
+            {{Doctor_form.status}} -->
+            <br> <br>
+            <button type="submit">Create Doctor</button>
+        </form>
+</body>
+</html>

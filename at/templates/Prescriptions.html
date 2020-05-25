@@ -1,0 +1,22 @@
+<html>
+    <title>Display Prescription</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <body>
+        <h1>Prescription</h1>
+        <form action="/CreatePrescription">
+            <button>Create Prescription</button>
+        </form>
+        </br></br>
+
+            {% for Prescription in prescription %}
+
+             <div class="card card-body">
+                   <h3>{{Prescription.date}}</h3>
+                    <label>symptoms:     {{Prescription.symptoms}}</label>
+                  <label>prescription:     {{Prescription.prescription}}</label>
+                  <label>patient:     {{Prescription.patient}}</label>
+        </div>
+            {% endfor %}
+    </body>
+</html>

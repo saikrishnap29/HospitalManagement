@@ -1,0 +1,26 @@
+<html>
+    <title>Display Employees</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <body>
+        <h1>Your Appointments</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Consulting Doctor</th>
+        <th scope="col">Status</th>
+    </tr>
+  </thead>
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{appointment.date}}</td>
+        <td>{{appointment.time}}</td>
+        <td>{{appointment.doctor}}</td>
+        <td>{{appointment.status}}</td>
+    </tr>
+     {% endfor %}
+</table>
+    </body>
+</html>

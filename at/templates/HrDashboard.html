@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<br><br>
+     <div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-orders">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Doctors</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"> {{doctors_total}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total patients</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{patients_total}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-pending">
+			  	<div class="card-header">
+			  		<h5 class="card-title">On Duty Doctors</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{on_duty_doctors}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<br><br>
+<div class="row">
+    <div class="col-md-12">
+           <h5>Doctors :</h5>
+            <hr>
+            <div class="card card-body">
+               <a class="btn btn-primary btn-sm btn-block" href="{% url 'DoctorProfileHr' %}">Doctors</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Status</th>
+                        <th>Depatment</th>
+                        <th>Attendence</th>
+                        <th>Salary</th>
+                        <th>Update</th>
+                        <th>Remove</th>
+
+                    </tr>
+                    {% for patient in patients %}
+                <tr>
+                    <td>{{Doctor.Name}}</td>
+                    <td>{{Doctor.Phone}}</td>
+                    <td>{{Doctor.Email}}</td>
+                    <td>{{Doctor.Gender}}</td>
+                    <td>{{Doctor.Age}}</td>
+                    <td>{{Doctor.Status}}</td>
+                    <td>{{Doctor.Depatment}}</td>
+                    <td>{{Doctor.Attendence}}</td>
+                    <td>{{Doctor.Salary}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'updateorder' Doctor.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'deleteorder' Doctor.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+    </div>
+</div>
+
+
+</body>
+</html>

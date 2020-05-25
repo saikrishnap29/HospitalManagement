@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <h1>Register</h1>
+      <form method="POST" action="">
+            {% csrf_token %}
+            {{Register_form.as_p}}
+
+            <!--{{Register_form.firstname.label}} :
+            {{Register_form.firstname}}
+            <br> <br>
+            {{Register_form.lastname.label}} :
+            {{Register_form.lastname}}
+            <br> <br>
+            {{Register_form.username.label}} :
+            {{Register_form.username}}
+            <br> <br>
+             {{Register_form.email.label}} :
+            {{Register_form.email}}
+            <br> <br>
+            {{Register_form.password.label}} :
+            {{Register_form.password}}
+            <br> <br>
+            {{Register_form.confirm_password.label}} :
+            {{Register_form.confirm_password}}
+            <br> <br>
+            {{Register_form.register_as.label}} :
+            {{Register_form.register_as}}
+-->
+            <br> <br>
+            <button type="submit">Create Account</button>
+        </form>
+      <div>
+          {% for message in messages %}
+             <h3> {{message}} </h3>
+          {% endfor %}
+      </div>
+</body>
+</html>
